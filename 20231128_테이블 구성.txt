@@ -1,0 +1,81 @@
+오늘
+
+- 쇼핑몰(ER 다이어그램)
+- 쇼핑몰 데이터베이스 구축
+
+쇼핑몰 - 의류쇼핑몰
+
+상품테이블
+- 상품번호 bigint PK
+- 상품분류 varchar(30)
+- 상품명 varchar(50)
+- 가격 int
+- 수량(재고) int
+- 상품설명 varchar(100)
+- 상품등록날짜 datetime timestamp
+- 상품조회수 int
+
+카테고리 테이블
+- 카테고리 번호 bigint PK
+- 카테고리 이름 varchar(50)
+
+주문 테이블
+- 주문번호 bigint PK
+- 주문날짜 datetime timestamp
+- 상품번호 (상품테이블PK -> FK)
+- 상품수량 int
+- 총주문금액 int
+- 주문처리상태 varchar(10)
+
+회원 테이블
+- 회원ID varchar(30) PK UNIQUE
+- 회원PW varchar(30)
+- 회원이름 varchar(20)
+- 연락처 varchar(20)
+- 닉네임 varchar(20)
+- 프로필사진 varchar(100) 
+  default '기본값으로 설정할 특정경로'
+- 회원이메일 varchar(50)
+- 회원등급 varchar(10) default 'Bronze'
+- 가입날짜 datetime timestamp
+
+배송지 테이블
+- 회원ID bigint PK fk
+- 배송주소 varchar(50)
+- 배송상세주소 varcahr(100)
+
+상품후기 테이블
+- id bigint PK
+- 상품번호 (상품테이블 PK값 가져오기)
+- 상품별점 int not null default '3'
+- 후기내용 varchar(100)
+
+단어_단어
+product_id
+order_date
+
+컬럼 : 테이블이름_컬럼항목
+price
+product_price
+
+stock
+product_stock
+
+상품설명
+product_desc
+product_des_count
+
+테이블
+테이블에 어떤것을 담을지_table
+
+쇼핑몰 데이터베이스
+ER다이어그램 작성
+(컬럼, 테이블이름 마음대로)
+들어가는 타입, 제약조건 지켜주기
+
+DB관련 모르는 부분
+1. 공유폴더 (11/24 ~) txt파일참고
+2. 주변에 앉아계신분 물어보기   
+3. 구글링 or 저한테 질문
+
+
