@@ -1,0 +1,100 @@
+package java20231103;
+
+//bus, metro , walk, people
+public class BmwEx {
+	public static void main(String[] args) {
+		People p1 = new People("이수근",4000);
+		People p2 = new People("이순재",2000);
+		People p3 = new People("강호동",8000);
+		People p4 = new People("유재석",20000);
+		
+		System.out.println(" ");
+		
+		Bus b1 = new Bus();
+		Metro m1 = new Metro();
+		Walk w1 = new Walk();
+		
+		b1.busTake(p1);
+		m1.metroTake(p2);
+		w1.walkResult(p3,10);
+		b1.busTake(p4);
+		
+		System.out.println(" ");
+		
+		p1.printPeople();
+		p2.printPeople();
+		p3.printPeople();
+		p4.printPeople();
+		
+	}
+}
+
+//버스 클래스
+class Bus{
+	
+	//버스 수입
+	int bMoney = 0;
+	//버스 승객수
+	int bPassenger = 0;
+	
+	//버스 탑승 메서드
+	void busTake(People p) {
+		System.out.println(p.name + "님이 버스에 탑승했습니다.");
+		bMoney += 1000;
+		bPassenger ++;
+		p.money-= 1000;
+		System.out.println("버스의 총 수익은 " + bMoney +"원이고, 승객은 "+bPassenger +"명 입니다.");
+	}
+}
+
+//지하철 클래스
+class Metro{
+	//지하철 수입
+	int mMoney=0;
+	//지하철 승객수
+	int mPassenger=0;
+	
+	//지하철 승객 탑승
+	void metroTake(People p) {
+		System.out.println(p.name + "님이 지하철에 탑승했습니다.");
+		mMoney += 2000;
+		mPassenger ++;
+		p.money-= 2000;
+		System.out.println("지하철의 총 수익은 " + mMoney +"원이고, 승객은 "+ mPassenger +"명 입니다.");
+		
+	}
+	
+}
+
+//걷기 클래스
+class Walk{
+	//이동거리
+	int km = 0;
+	
+	//이동결과 출력 메서드
+	void walkResult(People p, int km) {
+		this.km = km;
+		System.out.println(p.name + "님이 "+ km + "km 이동했습니다.");
+		
+	}
+}
+
+//사람 클래스
+class People{
+	
+	//사람이름, 잔고
+	String name="";
+	int money=0;
+	
+	//사람이름, 잔고 출력 메서드
+	void printPeople() {
+		System.out.println(name + "의 현재 잔액은 " + money + "원 입니다.");
+	}
+	
+	People(String pName, int pMoney){
+		this.name=pName;
+		this.money=pMoney;
+		System.out.println(name + "의 현재 잔액은 " + money + "원 입니다.");
+	}
+}
+

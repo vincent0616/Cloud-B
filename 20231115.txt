@@ -1,0 +1,25 @@
+지난 시간
+
+- 예외처리 (try-catch-finally)
+try-catch 예외처리를 하다가 예외가 해당되거나
+해당되지않거나 상관없이 finally작성된 내용을 실행
+
+- 메서드 예외처리
+예외를 떠넘기는 방법(throws)
+void method1() throws Exception {
+}
+
+- 메서드 예외처리 (예외 되던지기)
+예외가 발생한 메서드에서 다시 메서드를 호출한 부분으로 돌아가서 예외를 던져주는거
+
+- 컬렉션 프레임웍
+모음, 표준화된 형식
+
+List, Set, Map
+
+1. List 인터페이스를 구현하는 클래스
+- ArrayList 예제
+- Vector
+용량(capactiy), 크기(size)
+크기 : 
+

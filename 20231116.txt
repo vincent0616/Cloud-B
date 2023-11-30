@@ -1,0 +1,37 @@
+JAVA - JSP/Servlet - Spring - Spring Boot
+
+JSP(Java Server Pages)
+- HTML태그안에 JAVA코드가 들어간 형태
+JAVA - 일반적인 윈도우 프로그램
+웹사이트를 만드는 제약 -> JSP
+
+파일확장자.JSP
+
+Servlet(자바 서블릿)
+웹페이지를 동적으로 만들기 위해 사용되는 서버측 프로그램
+JAVA코드 안에 HTML태그가 들어가는 형태
+
+동적 웹 사이트 
+->사용자(클라이언트) 가 원하는 값을 요청하고
+요청에 해당되는 작업을 서버에서 처리하고
+처리된 결과값을 다시 클라이언트한테 반환해줄수있는 사이트
+
+요청, 응답
+- 요청(Request) : 클라이언트쪽에서 보내는 요구사항
+- 응답(Response) : 서버쪽에서 요청을 받은후에 처리해서 보내는 처리결과
+=> 모든 동적 웹 페이지는 요청과 응답으로 이루어진다
+
+html css 만을 사용해서 웹사이트를 만들 수 있다
+-> 정적 웹 사이트
+
+JSP/Servlet - 웹 애플리케이션 서버 위에서 컴파일, 동작
+WAS(Web Application Server) : DB처리, 로직처리
+대표적인 	WAS : 톰캣(Apache Project - Tomcat), Jetty
+
+IDE(통합개발환경)
+이클립스, 인텔리제이
+
+
+
+
+

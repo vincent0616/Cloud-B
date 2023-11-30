@@ -1,0 +1,147 @@
+package prac;
+
+import java.util.Scanner;
+
+public class RepEx {
+	public static void main(String[] args) {
+		
+		// 1. 학생 3명의 국어, 수학, 영어 점수를 각각 입력받고
+		// 2. 학생 3명의 총점을 구하고
+		// 3. 학생 3명의 총점을 바탕으로 석차(등수) 출력
+		// 과목별 점수는 0 ~ 100 사이
+		// 변수, 연산자, 조건문, 반복문
+		
+		//학생의 총점을 구하기 위한 변수 생성
+		int st1 = 0;
+		int st2 = 0;
+		int st3 = 0;
+				
+		//점수 입력받기 위한 스캐너 생성
+		Scanner sc = new Scanner(System.in);
+		int input = 0;
+		
+		// 학생의 수 만큼 반복
+		for(int i=0; i<3; i++) {
+			// 과목 수 만큼 반복 
+			for(int j=0; j<3; j++) {
+				//첫번째 학생
+				if(i==0) {
+					switch(j) {
+						//학생1 국어점수
+						case 0:
+							System.out.println("학생1의 국어 점수를 입력하세요.");
+							break;
+							
+						//학생1 수학점수
+						case 1 :
+							System.out.println("학생1의 수학 점수를 입력하세요.");
+							break;
+						//학생1 영어점수
+						case 2 :
+							System.out.println("학생1의 영어 점수를 입력하세요.");
+							break;	
+					}
+					
+					input = sc.nextInt();
+					
+					//입력받는 값이 0이상 100이하
+					if(input >= 0 && input <=100) {
+						st1 += input;
+					}else {
+						input = sc.nextInt();
+						st1 += input;
+					}
+					
+					
+				//학생2 점수를 입력받는 코드
+				}else if(i==1) {
+					switch(j) {
+					//학생2 국어점수
+					case 0:
+						System.out.println("학생2의 국어 점수를 입력하세요.");
+						break;
+						
+					//학생2 수학점수
+					case 1 :
+						System.out.println("학생2의 수학 점수를 입력하세요.");
+						break;
+						
+					//학생2 영어점수
+					case 2 :
+						System.out.println("학생2의 영어 점수를 입력하세요.");
+						break;	
+				}
+				input = sc.nextInt();
+				
+				//입력받는 값이 0이상 100이하
+				if(input >= 0 && input <=100) {
+					st2 += input;
+				}else {
+					input = sc.nextInt();
+					st2 += input;
+				}
+				
+				//학생3 점수를 입력받는 코드
+				}else if(i==2) {
+					switch(j) {
+					//학생3 국어점수
+					case 0:
+						System.out.println("학생3의 국어 점수를 입력하세요.");
+						break;
+						
+					//학생3 수학점수
+					case 1 :
+						System.out.println("학생3의 수학 점수를 입력하세요.");
+						break;
+						
+					//학생3 영어점수
+					case 2 :
+						System.out.println("학생3의 영어 점수를 입력하세요.");
+						break;	
+				}
+				input = sc.nextInt();
+					//입력받는 값이 0이상 100이하
+					if(input >= 0 && input <=100) {
+						st3 += input;
+					}else {
+						input = sc.nextInt();
+						st3 += input;
+					}
+				}
+				 
+			}
+		}
+		
+		System.out.println("학생1 총점 : " + st1 + ", 학생2 총점 : " + st2 + ", 학생3 총점 : " + st3);
+				
+		//학생1의 총점 비교
+		if(st1 > st2) {
+			if(st1 > st3) {
+				if(st2 > st3) {
+					System.out.println("1등 : 학생1, 2등 : 학생2, 3등 : 학생3");
+				}else if(st2 < st3) {
+					System.out.println("1등 : 학생1, 2등 : 학생3, 3등 : 학생2");
+				}
+			}else if(st1 < st3) {
+				System.out.println("1등 : 학생3, 2등 : 학생1, 3등 : 학생2");
+			}
+						
+		}else if(st2 > st1) {
+			if(st1 > st3) {
+				//학생2 > 학생1 > 학생3
+				System.out.println("1등 : 학생2, 2등 : 학생1, 3등 : 학생3");
+			}else if(st3 > st1) {
+				//학생2 > 학생3 > 학생1
+				if(st2 > st3) {
+					System.out.println("1등 : 학생2, 2등 : 학생3, 3등 : 학생1");	
+				}else if(st3 > st2) {
+					System.out.println("1등 : 학생3, 2등 : 학생2, 3등 : 학생1");
+				}
+				
+			}else if(st3 > st2) {
+				System.out.println("1등 : 학생3, 2등 : 학생2, 3등 : 학생1");
+			}
+		}
+	}
+
+}

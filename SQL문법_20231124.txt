@@ -1,0 +1,70 @@
+/* 쿼리문 사용방법*/
+
+-- 한 줄 주석
+/* 여러줄 주석 */
+
+-- board1이라는 데이터베이스(스키마) 생성
+CREATE DATABASE board1;
+
+-- board1 데이터베이스 캐릭터셋과 콜레이션을 utf8로 변경
+-- 콜레이션을 설정할 때 COLLATE사용, COLLATE : 문자열을 비교, 정렬하기위해 정의된 규칙 모음
+-- ALTER 사용하려면 속성이 붙어야 함
+
+ALTER DATABASE board1 CHARACTER SET = UTF8 COLLATE = UTF8_GENERAL_CI;
+
+-- board1이라는 데이터베이스 삭제
+DROP DATABASE board1;
+
+-- <RENAME DATABASE 진행하는 과정>
+
+-- RENAME은 기존 데이터베이스에 있는 데이터를 새로운 데이터베이스에 옮겨주고,
+-- 기존 데이터베이스를 삭제하는 방법으로 진행된다
+RENAME table 기존DB명.기존TABLE명 TO 새 DB명.새TABLE명;
+
+-- 만약에 옮길 프로시저가 존재할 경우 해당 쿼리문으로 옮겨줌
+UPDATE mysql.proc SET db = '기존DB명' WHERE db = '새DB명';
+
+-- 새 DB로 기존 DB의 자료가 모두 전달되었다면, 기존 DB를 삭제한다
+DROP DATABASE 기존DB명;
+
+-- TRUNCATE도 마찬가지로 DB 전체를 한번에 지울수 X
+-- TRUNCATE도 RENAME처럼 DB 안에있는 테이블을 순차적으로 지우는 기능
+TRUNCATE TABLE 테이블명;
+
+-- <DML> - 데이터 조작어
+-- insert(삽입), delete(삭제), update(수정), select(조회)
+-- CRUD (Create Read Update Delete)
+
+-- INSERT
+INSERT INTO 테이블이름(NAME, 필드이름2, 필드이름3, ..) VALUES('김철수', 데이터값2, 데이터값3,...);
+INSERT INTO 테이블이름 VALUES('김철수', 데이터값2, 데이터값3,...);
+
+-- DELETE
+DELETE FROM 테이블이름 WHERE 필드(컬럼)이름 = 데이터값;
+-- WHERE NAME = '김철수'
+
+-- UPDATE
+UPDATE 테이블이름 SET 필드이름1 = 데이터값1, 필드이름2 = 데이터값2,... WHERE 필드이름 = 데이터값;
+-- UPDATE member SET age = 20 WHERE name = '김철수';
+
+-- SELECT
+SELECT 필드이름(컬럼) FROM 테이블이름 WHERE 조건;
+-- SELECT name FROM member WHERE age = 20;
+-- SELECT * FROM 테이블이름;
+
+-- insert into member_table (email, password,nick,member_state)
+-- values('kimchulsoo@gmail.com','1234','김철수',0);
+
+select * from member_table;
+
+-- CREATE TABLE member_table(
+-- 	id BIGINT NOT NULL AUTO_INCREMENT  PRIMARY KEY COMMENT '자동생성',
+-- 	email VARCHAR(40) NOT NULL,
+-- 	password VARCHAR(40) NOT NULL,
+-- 	nick VARCHAR(15) NOT NULL,
+-- 	member_state BOOLEAN NOT NULL,
+-- 	member_profile VARCHAR(200) DEFAULT 'C:\Users\HKIT\Downloads\다운로드.jpg'
+-- );member_table
+
+
+

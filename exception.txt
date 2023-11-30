@@ -1,0 +1,7 @@
+Exception - 모든 예외사항에 대해
+InputMismatchException - 입력받기로한 값이 입력한 값과 다른 타입일때
+ArithmeticException - 0으로 나누었을 때 발생하는 예외
+ClassCastException - 형변환(상위,하위 / 인터페이스, 인터페이스 구현클래스) 예외
+ArrayIndexOutBoundsException - 배열 사용 시 배열 크기를 벗어난 인덱스에 접근하는 경우
+NullPointerException - null값을 사용하려고 할 때 발생하는 예외
+

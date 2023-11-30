@@ -1,0 +1,112 @@
+package java20231108;
+
+// 은행 프로그램
+// 계좌번호를 받아서 통장잔고를 출력, 입금 출금 가능하게
+// 접근제어자
+// 사람인스턴스 -> 이름, 계좌번호값을 초기화
+// 사람인스턴스의 계좌번호를 가져와서 유효한 계좌인지 확인
+// 없는 계좌번호 -> 존재하지 않는 계좌번호입니다.
+// 있으면 출금, 입금, 통장잔고 출력 기능중 하나를 수행
+
+public class CapsuleEx {
+	public static void main(String[] args) {
+		Human h1 = new Human("정약용",111111);
+		Human h2 = new Human("장발장",131313);
+		Human h3 = new Human("나쁜사람",222222);
+		Bank kakao = new Bank();
+		
+		kakao.bMoney[1] = 999999999;
+		kakao.chkAcc(h3);
+		
+		//정약용 계좌번호 유효성 검사
+		kakao.chkAcc(h1);
+		
+		//정약용 계좌에 100만원 입금
+		kakao.ip(h1, 1000000);
+				
+		//정약용 계좌에서 3000원 출금
+		kakao.cg(h1, 3000);
+		
+		//장발장 계좌번호 유효성 검사
+		kakao.chkAcc(h2);
+		
+		//장발장 계좌에서 5000원 출금
+		kakao.cg(h2, 5000);
+	}
+}
+
+class Human{
+	String name = "";
+	int account = 0;
+	
+	//매개변수가 있는 생성자
+	Human(String hName,int hAccount){
+		this.name=hName;
+		this.account=hAccount;
+	}
+}
+
+class Bank{
+	//계좌번호 체크를 위한 변수, 임의의 계좌번호 저장
+	int[] chkAccount= {111111,222222,131313};
+	int[] bMoney = {3000,1000000000,0};
+	
+	//계좌번호 유효성 검사
+	void chkAcc(Human h) {
+		//은행에 저장된 계좌번호 중에서 입력한 계좌번호와 일치하는 번호가 있는지 확인
+		for(int i = 0; i<chkAccount.length;i++) {
+			if(chkAccount[i] == h.account) {
+				System.out.println("현재 " + h.name +"님의 잔액은 " + bMoney[i] + "원 입니다.");
+				break;
+			}else {
+				//마지막에 찍어주기
+				if(i==chkAccount.length) {
+					System.out.println("존재하지 않는 계좌입니다.");
+				}
+			}
+		}
+	}
+	
+	//입금 메서드
+	void ip(Human h, int hMoney) {
+		for(int i = 0; i<chkAccount.length;i++) {
+			if(chkAccount[i] == h.account) {
+				//현재 잔액배열에서 입력받은 금액(hMoney)을 더해주기
+				bMoney[i] += hMoney;
+				System.out.println("현재 " + h.name +"님의 잔액은 " + bMoney[i] + "원 입니다.");
+				break;
+			}else {
+				//마지막에 찍어주기
+				if(i==chkAccount.length) {
+					System.out.println("존재하지 않는 계좌입니다.");
+				}
+			}
+		}
+	}
+	
+	//출금 메서드
+	void cg(Human h, int hMoney) {
+		for(int i = 0; i<chkAccount.length;i++) {
+			if(chkAccount[i] == h.account) {
+				//현재 잔액배열에서 입력받은 금액(hMoney)을 빼주기
+				//잔액 체크
+				if(bMoney[i] < hMoney) {
+					System.out.println("잔액이 부족합니다.");
+					break;
+				}else {
+					//잔액이 충분하면 출금실행
+					bMoney[i] -= hMoney;	
+				}
+				
+				System.out.println("현재 " + h.name +"님의 잔액은 " + bMoney[i] + "원 입니다.");
+				break;
+			}else {
+				//마지막에 찍어주기
+				if(i==chkAccount.length) {
+					System.out.println("존재하지 않는 계좌입니다.");
+				}
+			}
+		}
+	}
+	
+}
