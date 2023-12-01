@@ -1,0 +1,17 @@
+JDBC - SQL문
+동적으로 값을 할당할게 있다 / 없다
+INSERT, UPDATE / SELECT
+PreparedStatement / Statement
+
+결론 - 효율 x
+-> java db배워서 쿼리문 반복숙달 위함
+JDBC 사용법 안 알려주지 않을까
+
+Spring - Spring Data JPA(DB통신)
+JPA사용법만 알면 JDBC는 건들 필요가 X
+JPA - 내부적으로는 JDBC 사용
+
+Spring -> 중복코드 제거
+Class 분리 작업
+
+
