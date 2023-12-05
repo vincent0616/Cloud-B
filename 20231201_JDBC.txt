@@ -1,0 +1,58 @@
+지난시간
+
+- 데이터베이스 활용(CRUD - 생성,조회,수정,삭제)
+- 데이터베이스 더미데이터 만들기
+- 더미데이터 조회하기
+- 더미데이터 값 변경하기
+- 더미데이터 삭제
+
+오늘
+
+- 데이터베이스 연결방법 알아보기
+- JDBC란
+- JAVA - MySQL 연결해보기(JDBC)
+- DB 문제풀기
+
+JDBC?
+
+JDBC(Java DataBase Connectivity)
+- 자바 기반의 프로그램 데이터를 데이터베이스에 저장, 업데이트/
+데이터베이스에 저장된 데이터를 JAVA에서 활용할 수 있도록 하는 자바API
+
+JDBC는 DB연동(Connection) 가능, DB에서 자료를 업데이트하거나 하는등의 작업가능
+
+JDBC 동작흐름
+
+JAVA 애플리케이션 -> JDBC API를 사용 -> DB접근(JDBC 드라이버)
+DBMS(오라클, MySQL, MsSQL, MariaDB, H2 등등..)
+
+JDBC드라이버 : DB와의 통신을 담당하는 인터페이스,
+DBMS마다 각기 다른 드라이버 제공, JDBC드라이버 구현체를 이용해서
+특정 데이터베이스에 접근이 가능
+
+JDBC API 사용 흐름
+1. JDBC 드라이버 로딩(DB와 직접 연결하기 위한)
+2. Connection 객체 생성(DB연결 관련 객체)
+3. Statement 객체 생성(SQL쿼리문 포함하는 객체)
+4. 쿼리문 실행
+5. ResultSet 객체 데이터 조회(SQL 쿼리문에 대한 DB의 결과값에 대한 데이터 셋)
+6. ResultSet 객체 Close(종료)
+7. Statement 객체 Close(종료)
+8. Connection 객체 Close(종료)
+
+JDBC 표준 인터페이스 3가지
+- java.sql.Connection : DB연결
+- java.sql.Statement : SQL을 담은 내용
+- java.sql.ResultSet : SQL의 요청을 응답
+
+JDBC API - DB와 연결위해 Connection 객체 반드시 만들어야 함
+-> 비용이 많이 드는 작업(비용 = 자원을 의미)
+
+우리가 계속 DB를 연결시켜놓지 않기 때문에 매번 Connection 객체를 만들어야하는 문제
+=> Connection Pool을 사용
+
+Connection Pool은 Connection 객체를 미리 생성해서 보관했다가
+우리가 DB를 연결시킬때 만들어둔 객체를 Connection Pool에서 꺼내서 사용
+EX) Hikari CP
+
+MySQL - 쇼핑몰(shopping_mall) - 

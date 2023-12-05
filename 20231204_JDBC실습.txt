@@ -1,0 +1,26 @@
+1. JDBC - DB연결
+2. DB SELECT
+3. DB INSERT
+4. DB DELETE
+5. DB UPDATE
+
+1. member_table
+새로운 회원을 추가(INSERT)
+
+2. 제품테이블(product_table)
+- 데일리 푸퍼 숏 패딩 재킷(3번)
+조회해서 CONSOLE 출력
+
+3. 카테고리 테이블(cate_table)
+- 아우터 -> 숏패딩
+
+4. 주문 테이블(order_table)
+- id값이 2인 항목을 삭제,
+주문 테이블 콘솔 출력
+
+
+
+
+
+
+
